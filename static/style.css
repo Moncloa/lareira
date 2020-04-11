@@ -1,0 +1,9 @@
+ @charset "UTF-8";
+ body {
+  background-image: url("img/background.jpg")
+}
+
+h1 {
+  color: cian;
+  margin-left: 20px;
+}

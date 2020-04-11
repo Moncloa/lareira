@@ -1,27 +1,27 @@
 import tornado.web
 import tornado.ioloop
-
+import os
 
 class basicRequestHandler(tornado.web.RequestHandler):
     def get(self):
-        self.write("Hello World!")
+        self.render("index.html")
 
 class staticRequestHandler(tornado.web.RequestHandler):
     def get(self):
-        video_url = "192.168.0.111:8080/video_feed"
-        self.render("templates/index.html")
+        self.render("index.html")
 
 
 if __name__ == "__main__":
+
     app = tornado.web.Application([
         (r'/',basicRequestHandler),
-        (r'/index.html',staticRequestHandler)
+        (r'/main',staticRequestHandler)],
+        template_path = os.path.join(os.path.dirname(__file__), "templates"),
+        static_path = os.path.join(os.path.dirname(__file__), "static"),
+        img_path=os.path.join(os.path.dirname(__file__), "img"),
+        debug = True)
 
-
-
-
-    ])
 
     app.listen(8800)
-    tornado.ioloop.IOLoop.current().start()
     print("server running in port 8800")
+    tornado.ioloop.IOLoop.current().start()
