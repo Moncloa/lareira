@@ -3,7 +3,7 @@ import sys
 import time
 import pandas as pd
 import matplotlib.pyplot as plt
-from bokeh.plotting import figure, output_file, show
+
 import plotly.express as px
 import plotly.graph_objects as go
 from datetime import datetime, timedelta
@@ -141,4 +141,4 @@ fig_disk.update_layout(
     paper_bgcolor="LightSteelBlue",)
 fig_disk.write_html("static/disk_pie.html")
 
-clean()
+#clean()
