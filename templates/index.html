@@ -5,11 +5,47 @@
     <title>Lareira</title>
 
     <link rel="stylesheet" type="text/css" href="{{static_url('style.css')}}">
+    <link rel="shortcut icon" href="{{static_url('favicon.ico')}}">
+      <Script Language="JavaScript">
+
+    function DameLaFechaHora() {
+      var hora = new Date()
+      var hrs = hora.getHours();
+      var min = hora.getMinutes();
+      var hoy = new Date();
+      var m = new Array();
+      var d = new Array()
+      var an= hoy.getYear();
+      m[0]="Enero";  m[1]="Febrero";  m[2]="Marzo";
+      m[3]="Abril";   m[4]="Mayo";  m[5]="Junio";
+      m[6]="Julio";    m[7]="Agosto";   m[8]="Septiembre";
+      m[9]="Octubre";   m[10]="Noviembre"; m[11]="Diciembre";
+      document.write("Son las "+hrs+":"+min+" (");
+      document.write(hoy.getDate());
+      document.write(" de ");
+      document.write(m[hoy.getMonth()]);
+      document.write(")");
+
+    }
+
+  </Script>
+
 </head>
 <body>
 
-    <h1>Cámara #1</h1>
-<iframe height="480" width="640" src="//192.168.0.111:8080/video_feed" frameborder="1" ></iframe>
+    <h1>Cámara #1
+          <script>
+
+    DameLaFechaHora();
+
+  </script>
+    </h1>
+
+    <iframe height="500" width="650" src="//192.168.0.111:8080/video_feed" frameborder="0" scrolling="no" align="left"></iframe>
+    <iframe height="250" width="650" src="{{static_url('temp_chart.html')}}" frameborder="0" align="left"></iframe>
+    <iframe height="250" width="650" src="{{static_url('hum_chart.html')}}" frameborder="0" align="left"></iframe>
+    <iframe height="250" width="650" src="{{static_url('cpu_chart.html')}}" frameborder="0" align="left"></iframe>
+    <iframe height="250" width="650" src="{{static_url('disk_pie.html')}}" frameborder="0" align="left"></iframe>
 
 </body>
 </html>
